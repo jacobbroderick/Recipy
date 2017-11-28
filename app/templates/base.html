@@ -1,0 +1,23 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - Recipy</title>
+    {% else %}
+    <title>Welcome to Recipy</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>Recipy: <a href="/index">Home</a></div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages%}
+            <li>{{message}}</li>
+          {%endfor%}
+        </ul>
+        {%endif%}
+      {%endwith%}
+      {% block content %}{% endblock %}
+    </body>
+</html>
