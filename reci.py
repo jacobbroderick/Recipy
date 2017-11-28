@@ -1,7 +1,8 @@
 '''
 Recipy is a python based recipe tracker. The idea is that it will sort recipes
 based on certain attributes such as time/food required/kitchen utencils etc.
-'''
+
+
 class Recipe:
     def __init__(self, name, directions, ingredients, cookware, notes):
         self.name = name
@@ -36,6 +37,17 @@ class Recipe_List:
 
 r = Recipe_List()
 print("creating recipes")
-r.add_recipe("boring","do stuff", "step1", "pan", "test")
+r.add_recipe("boring","do stuff", "Onions \n peppers \n garlic", "pan", "test")
 r.print_all_recipes()
 print("finished")
+'''
+
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route("/")
+def main():
+    return render_template('index.html')
+
+if __name__ == "__main__":
+    app.run()
